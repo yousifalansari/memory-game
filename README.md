@@ -1,5 +1,5 @@
 # memory-game
-Theme: Programming
+Theme: Playing cards
 
 User Stories 
 
