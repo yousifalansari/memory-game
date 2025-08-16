@@ -1,5 +1,6 @@
 # memory-game
-Theme: Programming
+Theme: Playing cards
+
 User Stories 
 
 As a user, I want to see a landing screen with the game’s title and theme so that I know I’m in the right place.
