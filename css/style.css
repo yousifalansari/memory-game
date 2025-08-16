@@ -11,3 +11,36 @@ body {
   align-items: center;
 }
 
+main {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px 30px;
+  border-radius: 10px;
+  width: 360px;
+  text-align: center;
+}
+
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.card {
+  width: 100px;
+  height: 140px;
+  margin-bottom: 15px;
+  background-image: url('https://i.ibb.co/zV3DxyCj/card-back1.png');
+  background-size: cover;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #000;
+  position: relative;
+}
+
+.card.flipped {
+  background-image: none;
+}
+
+
+
