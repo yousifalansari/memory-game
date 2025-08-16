@@ -17,3 +17,8 @@ const cardsData = [
   }
 ];
 
+/*---------- Variables (state) ---------*/
+let moveCount = 0;
+let flippedCards = [];
+let matchedPairs = 0;
+let boardLocked = false;  // to stop clicks while cards are flipping back from the game logic itself
