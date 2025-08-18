@@ -18,32 +18,66 @@ const cardsData = [
 ];
 
 /*---------- Variables (state) ---------*/
-let moveCount = 0;
-let flippedCards = [];
-let matchedPairs = 0;
-let boardLocked = false;  // to stop clicks while cards are flipping back from the game logic itself
-
-/*---------- Cached Element Reference ---------*/
 var gameBoard = document.getElementById("game-board");
+var flippedCards = [];
+var boardLocked = false;
 
 /*-------------- Functions -------------*/
+function setupCards() {
+  var pairs = [];
+  for (var i = 0; i < cardsData.length; i++) {
+    pairs.push(cardsData[i]);
+    pairs.push(cardsData[i]);
+  }
+  pairs.sort(function() {
+    return Math.random() - 0.5;
+  });
+  return pairs;
+}
+
 function renderCards() {
-  cardsData.forEach(function(card) {
+  gameBoard.innerHTML = "";
+  var cards = setupCards();
+  for (var i = 0; i < cards.length; i++) {
+    var card = cards[i];
     var cardElement = document.createElement("div");
     cardElement.classList.add("card");
+    cardElement.dataset.id = card.id;
 
     var frontImg = document.createElement("img");
     frontImg.src = card.imgSrc;
     frontImg.alt = card.alt;
-
     cardElement.appendChild(frontImg);
 
     cardElement.addEventListener("click", function() {
-      cardElement.classList.toggle("flipped");
+      onCardClick(this);
     });
 
     gameBoard.appendChild(cardElement);
-  });
+  }
+}
+
+function onCardClick(card) {
+  if (boardLocked) return;
+  if (card.classList.contains("flipped") || flippedCards.length === 2) return;
+  card.classList.add("flipped");
+  flippedCards.push(card);
+
+  if (flippedCards.length === 2) {
+    var first = flippedCards[0];
+    var second = flippedCards[1];
+    if (first.dataset.id === second.dataset.id) {
+      flippedCards = [];
+    } else {
+      boardLocked = true;
+      setTimeout(function() {
+        first.classList.remove("flipped");
+        second.classList.remove("flipped");
+        flippedCards = [];
+        boardLocked = false;
+      }, 800);
+    }
+  }
 }
 
 /*----------- Event listeners -----------*/
