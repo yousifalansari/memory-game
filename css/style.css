@@ -11,13 +11,7 @@ body {
   align-items: center;
 }
 
-main {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px 30px;
-  border-radius: 10px;
-  width: 360px;
-  text-align: center;
-}
+
 
 .game-board {
   display: flex;
@@ -104,4 +98,20 @@ main {
   font-weight: bold;
 }
 
+#play-again-btn {
+  background-color: #008CBA;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 40px auto 0 auto;
+  display: block;
+}
+
+
+#play-again-btn:hover {
+  background-color: #005f73;
+}
 
