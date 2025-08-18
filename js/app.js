@@ -22,3 +22,31 @@ let moveCount = 0;
 let flippedCards = [];
 let matchedPairs = 0;
 let boardLocked = false;  // to stop clicks while cards are flipping back from the game logic itself
+
+/*---------- Cached Element Reference ---------*/
+var gameBoard = document.getElementById("game-board");
+
+/*-------------- Functions -------------*/
+function renderCards() {
+  cardsData.forEach(function(card) {
+    var cardElement = document.createElement("div");
+    cardElement.classList.add("card");
+
+    var frontImg = document.createElement("img");
+    frontImg.src = card.imgSrc;
+    frontImg.alt = card.alt;
+
+    cardElement.appendChild(frontImg);
+
+    cardElement.addEventListener("click", function() {
+      cardElement.classList.toggle("flipped");
+    });
+
+    gameBoard.appendChild(cardElement);
+  });
+}
+
+/*----------- Event listeners -----------*/
+document.addEventListener("DOMContentLoaded", function() {
+  renderCards();
+});
