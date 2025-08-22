@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Simple Card Memory Game</title>
+  <title>Card Memory Game</title>
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/app.js" defer></script>
 </head>
@@ -11,10 +11,11 @@
   <main>
     <h1>Memory Card Game</h1>
     <p>Click cards to flip and find matching pairs.</p>
-    
+    <div id="timer"></div>
     <div id="game-board" class="game-board"></div>
-    
     <div id="moves-counter">Moves: 0</div>
+    <div id="message"></div>
+    <button id="play-again-btn" style="display:none;">Play Again</button>
   </main>
 </body>
 </html>

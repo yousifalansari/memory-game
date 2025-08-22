@@ -36,9 +36,20 @@ const MEMORIZE_DISPLAY_TIME = 3000;
 const GAME_TIME_LIMIT = 60000;  
 
 /*---------- Variables (state) ---------*/
-var gameBoard = document.getElementById("game-board");
-var flippedCards = [];
+var gameCards = [];
+var flippedCardIndexes = [];
+var matchedCardIndexes = [];
+var totalMoves = 0;
 var boardLocked = false;
+var timer = null;
+var timeRemaining = GAME_TIME_LIMIT;
+
+/*----- Cached Element References  ------*/
+var gameBoardElement = document.getElementById("game-board");
+var movesCounterElement = document.getElementById("moves-counter");
+var messageElement = document.getElementById("message");
+var playAgainButton = document.getElementById("play-again-btn");
+var timerElement = document.getElementById("timer");
 
 /*-------------- Functions -------------*/
 function setupCards() {
