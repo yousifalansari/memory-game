@@ -52,11 +52,11 @@ var playAgainButton = document.getElementById("play-again-btn");
 var timerElement = document.getElementById("timer");
 
 /*-------------- Functions -------------*/
-function setupCards() {
+function shuffledDeck() {
   var pairs = [];
   for (var i = 0; i < cardsData.length; i++) {
-    pairs.push(cardsData[i]);
-    pairs.push(cardsData[i]);
+    pairs.push(CARD_TEMPLATES[i]);
+    pairs.push(CARD_TEMPLATES[i]);
   }
   pairs.sort(function() {
     return Math.random() - 0.5;
