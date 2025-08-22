@@ -92,7 +92,7 @@ function renderCards() {
 
 
 
-function onCardClick(card) {
+function whenCardClicked(card) {
   if (boardLocked) return;
   if (card.classList.contains("flipped") || flippedCards.length === 2) return;
   card.classList.add("flipped");
@@ -113,6 +113,23 @@ function onCardClick(card) {
       }, 800);
     }
   }
+}
+
+function startTimer() {
+  timeLeft = 60;
+  timerDiv.textContent = 'Time Left: ' + timeLeft + 's';
+
+  timer = setInterval(function() {
+    timeLeft--;
+    timerDiv.textContent = 'Time Left: ' + timeLeft + 's';
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      if (matched.length !== deck.length) {
+        endGame(false);
+      }
+    }
+  }, 1000);
 }
 
 /*----------- Event listeners -----------*/
