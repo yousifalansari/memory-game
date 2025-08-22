@@ -143,7 +143,26 @@ function endGame(won) {
   playAgain.style.display = 'inline-block';
 }
 
+playAgain.onclick = function() {
+  startGame();
+};
+
+function startGame() {
+  deck = shuffleCards();
+  flipped = [];
+  matched = [];
+  moves = 0;
+  boardLocked = false;
+  movesCounter.textContent = 'Moves: 0';
+  messageDiv.textContent = '';
+  playAgain.style.display = 'none';
+
+  render();
+  startTimer();
+}
+
+
 /*----------- Event listeners -----------*/
-document.addEventListener("DOMContentLoaded", function() {
-  renderCards();
+document.addEventListener('DOMContentLoaded', function() {
+  startGame();
 });
