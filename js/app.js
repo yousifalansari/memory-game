@@ -132,6 +132,17 @@ function startTimer() {
   }, 1000);
 }
 
+function endGame(won) {
+  boardLocked = true;
+  clearInterval(timer);
+  if (won) {
+    messageDiv.textContent = 'You won! 🎉';
+  } else {
+    messageDiv.textContent = "Time's up! You lost. ⏰";
+  }
+  playAgain.style.display = 'inline-block';
+}
+
 /*----------- Event listeners -----------*/
 document.addEventListener("DOMContentLoaded", function() {
   renderCards();
