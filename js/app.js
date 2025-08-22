@@ -1,20 +1,35 @@
 /*-------------- Constants -------------*/
 const cardsData = [
-  {
-    id: "clubs-1",
-    imgSrc: "https://i.ibb.co/2Y0xFPpX/card-clubs-1.png",
-    alt: "Club suit card"
-  },
-  {
-    id: "hearts-7",
-    imgSrc: "https://i.ibb.co/zWXw42mX/card-hearts-7.png",
-    alt: "Heart suit card"
-  },
-  {
-    id: "spades-13",
-    imgSrc: "https://i.ibb.co/sv4pR05r/card-spades-13.png",
-    alt: "Spade suit card"
-  }
+    {
+        id: "clubs-1",
+        imgSrc: "https://i.ibb.co/2Y0xFPpX/card-clubs-1.png",
+        alt: "Club 1 suit card"
+    },
+    {
+        id: "hearts-7",
+        imgSrc: "https://i.ibb.co/zWXw42mX/card-hearts-7.png",
+        alt: "Heart 7 suit card"
+    },
+    {
+        id: "spades-13",
+        imgSrc: "https://i.ibb.co/sv4pR05r/card-spades-13.png",
+        alt: "Spade suit card"
+    },
+    {
+        id: "diamonds-12",
+        imgSrc: "https://i.ibb.co/hx7pFvzV/card-diamonds-12.png",
+        alt: "Diamond suit card"
+    },
+    {
+        id: "spades-3",
+        imgSrc: "https://i.ibb.co/fdF7SY81/card-spades-3.png",
+        alt: "Spade 3 card"
+    },
+    {
+        id: "hearts-11",
+        imgSrc: "https://i.ibb.co/KxkpWZ7W/card-hearts-11.png",
+        alt: "Heart 11 card"
+    }
 ];
 
 /*---------- Variables (state) ---------*/
