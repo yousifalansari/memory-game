@@ -33,7 +33,7 @@ const CARD_TEMPLATES = [
 ];
 
 const MEMORIZE_DISPLAY_TIME = 3000; 
-const GAME_TIME_LIMIT = 60000;  
+const GAME_TIME_LIMIT = 60000;
 
 /*---------- Variables (state) ---------*/
 var gameCards = [];
@@ -52,117 +52,132 @@ var playAgainButton = document.getElementById("play-again-btn");
 var timerElement = document.getElementById("timer");
 
 /*-------------- Functions -------------*/
-function shuffledDeck() {
-  var pairs = [];
-  for (var i = 0; i < cardsData.length; i++) {
-    pairs.push(CARD_TEMPLATES[i]);
-    pairs.push(CARD_TEMPLATES[i]);
-  }
-  pairs.sort(function() {
-    return Math.random() - 0.5;
-  });
-  return pairs;
+function shuffleCards() {
+    var pairs = [];
+    for (var i = 0; i < CARD_TEMPLATES.length; i++) {
+        pairs.push(CARD_TEMPLATES[i]);
+        pairs.push(CARD_TEMPLATES[i]);
+    }
+    pairs.sort(function() {
+        return Math.random() - 0.5;
+    });
+    return pairs;
 }
 
 function renderCards() {
-  gameBoard.innerHTML = '';
+    gameBoardElement.innerHTML = '';
 
-  for (var i = 0; i < deck.length; i++) {
-    var card = deck[i];
-    var cardDiv = document.createElement('div');
-    cardDiv.className = 'card';
-    cardDiv.setAttribute('data-index', i);
+    for (var i = 0; i < gameCards.length; i++) {
+        var card = gameCards[i];
+        var cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+        cardDiv.setAttribute('data-index', i);
 
-    if (flipped.indexOf(i) !== -1 || matched.indexOf(i) !== -1) {
-      cardDiv.classList.add('flipped');
+        if (flippedCardIndexes.indexOf(i) !== -1 || matchedCardIndexes.indexOf(i) !== -1) {
+            cardDiv.classList.add('flipped');
+        }
+
+        var img = document.createElement('img');
+        img.src = card.imgSrc;
+        img.alt = card.alt;
+        cardDiv.appendChild(img);
+
+        cardDiv.onclick = function() {
+            onCardClick(parseInt(this.getAttribute('data-index')));
+        };
+
+        gameBoardElement.appendChild(cardDiv);
     }
-
-    var img = document.createElement('img');
-    img.src = card.imgSrc;
-    img.alt = card.alt;
-    cardDiv.appendChild(img);
-
-    cardDiv.onclick = function() {
-      onFlip(parseInt(this.getAttribute('data-index')));
-    };
-
-    gameBoard.appendChild(cardDiv);
-  }
 }
 
+function onCardClick(index) {
+    if (boardLocked) return;
+    if (flippedCardIndexes.length === 2) return;
+    if (flippedCardIndexes.indexOf(index) !== -1 || matchedCardIndexes.indexOf(index) !== -1) return;
 
+    flippedCardIndexes.push(index);
+    renderCards();
 
-function whenCardClicked(card) {
-  if (boardLocked) return;
-  if (card.classList.contains("flipped") || flippedCards.length === 2) return;
-  card.classList.add("flipped");
-  flippedCards.push(card);
+    if (flippedCardIndexes.length === 2) {
+        totalMoves++;
+        movesCounterElement.textContent = 'Moves: ' + totalMoves;
 
-  if (flippedCards.length === 2) {
-    var first = flippedCards[0];
-    var second = flippedCards[1];
-    if (first.dataset.id === second.dataset.id) {
-      flippedCards = [];
-    } else {
-      boardLocked = true;
-      setTimeout(function() {
-        first.classList.remove("flipped");
-        second.classList.remove("flipped");
-        flippedCards = [];
-        boardLocked = false;
-      }, 800);
+        var first = flippedCardIndexes[0];
+        var second = flippedCardIndexes[9];
+
+        if (gameCards[first].id === gameCards[second].id) {
+            matchedCardIndexes.push(first);
+            matchedCardIndexes.push(second);
+            flippedCardIndexes = [];
+
+            if (matchedCardIndexes.length === gameCards.length) {
+                endGame(true);
+            }
+        } else {
+            boardLocked = true;
+            setTimeout(function() {
+                flippedCardIndexes = [];
+                boardLocked = false;
+                renderCards();
+            }, 800);
+        }
     }
-  }
 }
 
 function startTimer() {
-  timeLeft = 60;
-  timerDiv.textContent = 'Time Left: ' + timeLeft + 's';
+    timeRemaining = GAME_TIME_LIMIT;
+    updateTimerDisplay();
 
-  timer = setInterval(function() {
-    timeLeft--;
-    timerDiv.textContent = 'Time Left: ' + timeLeft + 's';
+    if (timer !== null) clearInterval(timer);
+    timer = setInterval(function() {
+        timeRemaining -= 1000;
+        updateTimerDisplay();
 
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      if (matched.length !== deck.length) {
-        endGame(false);
-      }
+        if (timeRemaining <= 0) {
+            clearInterval(timer);
+            if (matchedCardIndexes.length !== gameCards.length) {
+                endGame(false);
+            }
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    if (timerElement) {
+        timerElement.textContent = 'Time Left: ' + Math.ceil(timeRemaining / 1000) + 's';
     }
-  }, 1000);
 }
 
 function endGame(won) {
-  boardLocked = true;
-  clearInterval(timer);
-  if (won) {
-    messageDiv.textContent = 'You won! 🎉';
-  } else {
-    messageDiv.textContent = "Time's up! You lost. ⏰";
-  }
-  playAgain.style.display = 'inline-block';
+    boardLocked = true;
+    clearInterval(timer);
+    if (won) {
+        messageElement.textContent = 'You won! 🎉';
+    } else {
+        messageElement.textContent = "Time's up! You lost. ⏰";
+    }
+    playAgainButton.style.display = 'inline-block';
 }
 
-playAgain.onclick = function() {
-  startGame();
+playAgainButton.onclick = function() {
+    startGame();
 };
 
 function startGame() {
-  deck = shuffleCards();
-  flipped = [];
-  matched = [];
-  moves = 0;
-  boardLocked = false;
-  movesCounter.textContent = 'Moves: 0';
-  messageDiv.textContent = '';
-  playAgain.style.display = 'none';
+    gameCards = shuffleCards();
+    flippedCardIndexes = [];
+    matchedCardIndexes = [];
+    totalMoves = 0;
+    boardLocked = false;
+    movesCounterElement.textContent = 'Moves: 0';
+    messageElement.textContent = '';
+    playAgainButton.style.display = 'none';
 
-  render();
-  startTimer();
+    renderCards();
+    startTimer();
 }
-
 
 /*----------- Event listeners -----------*/
 document.addEventListener('DOMContentLoaded', function() {
-  startGame();
+    startGame();
 });
