@@ -65,26 +65,32 @@ function shuffledDeck() {
 }
 
 function renderCards() {
-  gameBoard.innerHTML = "";
-  var cards = setupCards();
-  for (var i = 0; i < cards.length; i++) {
-    var card = cards[i];
-    var cardElement = document.createElement("div");
-    cardElement.classList.add("card");
-    cardElement.dataset.id = card.id;
+  gameBoard.innerHTML = '';
 
-    var frontImg = document.createElement("img");
-    frontImg.src = card.imgSrc;
-    frontImg.alt = card.alt;
-    cardElement.appendChild(frontImg);
+  for (var i = 0; i < deck.length; i++) {
+    var card = deck[i];
+    var cardDiv = document.createElement('div');
+    cardDiv.className = 'card';
+    cardDiv.setAttribute('data-index', i);
 
-    cardElement.addEventListener("click", function() {
-      onCardClick(this);
-    });
+    if (flipped.indexOf(i) !== -1 || matched.indexOf(i) !== -1) {
+      cardDiv.classList.add('flipped');
+    }
 
-    gameBoard.appendChild(cardElement);
+    var img = document.createElement('img');
+    img.src = card.imgSrc;
+    img.alt = card.alt;
+    cardDiv.appendChild(img);
+
+    cardDiv.onclick = function() {
+      onFlip(parseInt(this.getAttribute('data-index')));
+    };
+
+    gameBoard.appendChild(cardDiv);
   }
 }
+
+
 
 function onCardClick(card) {
   if (boardLocked) return;
