@@ -1,5 +1,5 @@
 /*-------------- Constants -------------*/
-const cardsData = [
+const CARD_TEMPLATES = [
     {
         id: "clubs-1",
         imgSrc: "https://i.ibb.co/2Y0xFPpX/card-clubs-1.png",
@@ -31,6 +31,9 @@ const cardsData = [
         alt: "Heart 11 card"
     }
 ];
+
+const MEMORIZE_DISPLAY_TIME = 3000; 
+const GAME_TIME_LIMIT = 60000;  
 
 /*---------- Variables (state) ---------*/
 var gameBoard = document.getElementById("game-board");
