@@ -1,3 +1,11 @@
+#game-board,
+#moves-counter,
+#timer,
+#message,
+#play-again-btn {
+  display: none;
+}
+
 body {
   margin: 0px;
   font-family: Arial, sans-serif;
