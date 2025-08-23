@@ -37,6 +37,7 @@ var timerElement = document.getElementById("timer");
 var startButton = document.getElementById("start-btn");
 var restartButton = document.getElementById("restart-btn");
 var buttonsBottom = document.getElementById("buttons-bottom");
+var instructionsElement = document.getElementById('start-instructions');
 
 var speakerToggleBtn = document.createElement("button");
 speakerToggleBtn.id = "speaker-toggle";
@@ -62,6 +63,7 @@ speakerToggleBtn.addEventListener('click', () => {
   lossSound.muted = isMuted;
   speakerToggleBtn.textContent = isMuted ? '🔇' : '🔊';
 });
+
 
 function tryPlayBgMusic() {
   if (!backgroundMusic.playing && !isMuted) {
@@ -160,9 +162,14 @@ function showCountdownAndFlipStartGame(callback) {
   }, 1000);
 }
 
-
 function prepareAndStartGame() {
   if (isCountdownRunning) return;
+
+  // Hide instructions on start
+  if (instructionsElement) {
+    instructionsElement.style.display = 'none';
+  }
+
   tryPlayBgMusic();
   if (timer !== null) clearInterval(timer);
   startButton.style.display = "none";
