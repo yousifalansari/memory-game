@@ -22,6 +22,7 @@ Memory Match Challenge is a classic memory card matching game themed around play
 - As a user, I want the option to restart or play again easily after finishing so I can try for a better score.
 
 ## Pseudocode  
+``` text
 On page load:
 
 Show title, theme, and instructions.
@@ -74,7 +75,7 @@ Reset score, moves, and timer.
 
 Shuffle and render cards.
 
-Show countdown and resume gameplay.
+Show countdown and resume gameplay.```
 
 ## Getting Started  
 The game is fully deployed and playable online at:  
