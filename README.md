@@ -75,7 +75,7 @@ Reset score, moves, and timer.
 
 Shuffle and render cards.
 
-Show countdown and resume gameplay.```
+Show countdown and resume gameplay. ```
 
 ## Getting Started  
 The game is fully deployed and playable online at:  
