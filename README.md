@@ -70,9 +70,9 @@ Click "Start Game" on the landing page after reading instructions, then try to m
 Class Canvas documents and personal pseudocode were utilized for this project’s structure and coding logic.
 
 ## Technologies Used  
-- HTML5  
-- CSS3 with Flexbox layout  
-- JavaScript (ES6)  
+- HTML
+- CSS 
+- JavaScript 
 - GitHub Pages for hosting
 
 ## Attributions  
