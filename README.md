@@ -22,39 +22,59 @@ Memory Match Challenge is a classic memory card matching game themed around play
 - As a user, I want the option to restart or play again easily after finishing so I can try for a better score.
 
 ## Pseudocode  
-// On page load:
-// - Show title, theme, and instructions.
-// - Wait for user to click Start Game button.
+On page load:
 
-// On Start Game click:
-// - Hide instructions and start button.
-// - Shuffle card deck and render cards face-down.
-// - Show a 3-2-1 countdown with cards briefly flipped face-up.
-// - Flip all cards face-down when countdown ends.
-// - Start countdown timer and enable card flipping.
+Show title, theme, and instructions.
 
-// When a card is clicked:
-// - If no card flipped, flip it and store as first selected card.
-// - Else flip card and store as second selected card.
-// - Lock board during comparison.
-// - If the two selected cards match:
-//   - Keep both cards face-up and update score.
-//   - Check if all matches found to trigger win.
-// - Else:
-//   - After short delay, flip both cards face-down.
-// - Increment move counter.
-// - Reset first and second selected cards.
+Wait for user to click Start Game button.
 
-// If timer runs out before all matches found:
-// - Display lose message.
-// - Disable card flipping and show option to restart.
+On Start Game click:
 
-// On restart or play again button click:
-// - Reset score, moves, and timer.
-// - Shuffle and render cards.
-// - Show countdown and resume gameplay.
+Hide instructions and start button.
 
-text
+Shuffle card deck and render cards face-down.
+
+Show a 3-2-1 countdown with cards briefly flipped face-up.
+
+Flip all cards face-down when countdown ends.
+
+Start countdown timer and enable card flipping.
+
+When a card is clicked:
+
+If no card flipped, flip it and store as first selected card.
+
+Else flip card and store as second selected card.
+
+Lock board during comparison.
+
+If the two selected cards match:
+
+Keep both cards face-up and update score.
+
+Check if all matches found to trigger win.
+
+Else:
+
+After short delay, flip both cards face-down.
+
+Increment move counter.
+
+Reset first and second selected cards.
+
+If timer runs out before all matches found:
+
+Display lose message.
+
+Disable card flipping and show option to restart.
+
+On restart or play again button click:
+
+Reset score, moves, and timer.
+
+Shuffle and render cards.
+
+Show countdown and resume gameplay.
 
 ## Getting Started  
 The game is fully deployed and playable online at:  
