@@ -81,6 +81,7 @@ This project was built inspired and guided by:
 - [JavaScript Academy YouTube Tutorial](https://www.youtube.com/watch?v=xWdkt6KSirw&ab_channel=JavaScriptAcademy)  
 - [Kenny Yip Coding YouTube Tutorial](https://www.youtube.com/watch?v=wz9jeI9M9hI&ab_channel=KennyYipCoding)  
 - Course lectures and Canvas documents
+- Pixabay for audio
 
 ## Next Steps  
 - Add multiplayer mode with turns and scoring.  
