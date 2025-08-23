@@ -23,59 +23,37 @@ Memory Match Challenge is a classic memory card matching game themed around play
 
 ## Pseudocode  
 ``` text
-On page load:
+// On page load:
+// - Show title, theme, and instructions.
+// - Wait for user to click Start Game button.
 
-Show title, theme, and instructions.
+// On Start Game click:
+// - Hide instructions and start button.
+// - Shuffle card deck and render cards face-down.
+// - Show a 3-2-1 countdown with cards briefly flipped face-up.
+// - Flip all cards face-down when countdown ends.
+// - Start countdown timer and enable card flipping.
 
-Wait for user to click Start Game button.
+// When a card is clicked:
+// - If no card flipped, flip it and store as first selected card.
+// - Else flip card and store as second selected card.
+// - Lock board during comparison.
+// - If the two selected cards match:
+//   - Keep both cards face-up and update score.
+//   - Check if all matches found to trigger win.
+// - Else:
+//   - After short delay, flip both cards face-down.
+// - Increment move counter.
+// - Reset first and second selected cards.
 
-On Start Game click:
+// If timer runs out before all matches found:
+// - Display lose message.
+// - Disable card flipping and show option to restart.
 
-Hide instructions and start button.
-
-Shuffle card deck and render cards face-down.
-
-Show a 3-2-1 countdown with cards briefly flipped face-up.
-
-Flip all cards face-down when countdown ends.
-
-Start countdown timer and enable card flipping.
-
-When a card is clicked:
-
-If no card flipped, flip it and store as first selected card.
-
-Else flip card and store as second selected card.
-
-Lock board during comparison.
-
-If the two selected cards match:
-
-Keep both cards face-up and update score.
-
-Check if all matches found to trigger win.
-
-Else:
-
-After short delay, flip both cards face-down.
-
-Increment move counter.
-
-Reset first and second selected cards.
-
-If timer runs out before all matches found:
-
-Display lose message.
-
-Disable card flipping and show option to restart.
-
-On restart or play again button click:
-
-Reset score, moves, and timer.
-
-Shuffle and render cards.
-
-Show countdown and resume gameplay. 
+// On restart or play again button click:
+// - Reset score, moves, and timer.
+// - Shuffle and render cards.
+// - Show countdown and resume gameplay.
 ```
 
 ## Getting Started  
