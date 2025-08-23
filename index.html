@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Card Memory Game</title>
+  <title>Memory Card Game</title>
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/app.js" defer></script>
 </head>
 <body>
-    <button id="start-btn">Start Game</button>
   <main>
     <h1>Memory Card Game</h1>
-    <p>Click cards to flip and find matching pairs.</p>
-    <div id="timer"></div>
-    <div id="game-board" class="game-board"></div>
-    <div id="moves-counter">Moves: 0</div>
-    <div id="message"></div>
-    <button id="play-again-btn">Play Again</button>
+    <div id="buttons-top">
+      <button id="start-btn">Start Game</button>
+    </div>
+    <div id="info-panel">
+      <div id="moves-counter" style="display:none;">Moves: 0</div>
+      <div id="score" style="display:none;">Score: 0 / 12</div>
+      <div id="timer" style="display:none;"></div>
+    </div>
+    <div id="game-board" class="game-board" style="display:none;"></div>
+    <div id="countdown" style="display:none;"></div>
+    <div id="message" style="display:none;"></div>
+    <div id="buttons-bottom">
+      <button id="restart-btn" style="display:none;">Restart Game</button>
+      <button id="play-again-btn" style="display:none;">Play Again</button>
+    </div>
   </main>
 </body>
 </html>

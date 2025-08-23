@@ -1,47 +1,112 @@
-#game-board,
-#moves-counter,
-#timer,
-#message,
-#play-again-btn {
-  display: none;
-}
-
-body {
-  margin: 0px;
-  font-family: Arial, sans-serif;
-  background-image: url('https://i.ibb.co/1fzRLp57/Space-Background-Images.jpg');
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  height: 900px;
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('https://i.ibb.co/1fzRLp57/Space-Background-Images.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-width: 480px;
+  min-height: 720px;
 }
 
 main {
   width: 480px;
+  min-width: 480px;
+  background: rgba(20, 20, 25, 0.9);
+  border-radius: 16px;
+  box-sizing: border-box;
+  padding: 20px 16px 60px 16px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+  font-size: 36px;
+  margin: 0 0 14px 0;
+  text-align: center;
+  user-select: none;
+}
+
+#buttons-top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+#buttons-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 18px; 
+  gap: 14px;
+}
+
+#info-panel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  user-select: none;
+}
+
+#info-panel > div {
+  flex-shrink: 0;
   text-align: center;
 }
 
-.game-board {
+#countdown {
+  width: 100%;
+  font-size: 48px;
+  font-weight: 900;
+  text-align: center;
+  color: white;
+  user-select: none;
+  height: 60px;
+  line-height: 60px;
+  margin-bottom: 10px;
+  margin-top: 25px;
+}
+
+#game-board {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 15px;
-  gap: 15px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 13px;
+  width: 456px;
+  min-height: 295px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .card {
-  flex: 0 0 100px;
+  width: 100px;
   height: 140px;
   background-image: url('https://i.ibb.co/zV3DxyCj/card-back1.png');
   background-size: cover;
   cursor: pointer;
   border-radius: 8px;
-  box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 6px #000;
   position: relative;
-  min-width: 100px;
 }
 
 .card.flipped {
@@ -56,53 +121,39 @@ main {
   height: 140px;
   border-radius: 8px;
   display: none;
+  user-select: none;
 }
 
 .card.flipped img {
   display: block;
 }
 
-#moves-counter, #message, #timer {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
-}
-
-#timer {
-  font-size: 20px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
+#start-btn,
+#restart-btn,
 #play-again-btn {
   background-color: #008CBA;
   border: none;
   border-radius: 8px;
   color: white;
-  padding: 12px 24px;
+  padding: 11px 24px;
   cursor: pointer;
   font-size: 18px;
-  margin: 40px auto 0 auto;
-  display: none;
-}
-
-#play-again-btn:hover {
-  background-color: #005f73;
+  min-width: 140px;
+  max-width: 210px;
+  transition: background-color 0.3s ease;
+  outline: none;
+  user-select: none;
+  margin: 0;
+  box-sizing: border-box;
+  display: inline-block;
 }
 
 #start-btn {
-  background-color: #008CBA;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  padding: 12px 24px;
-  font-size: 18px;
-  cursor: pointer;
-  display: inline-block;
-  transition: background-color 0.3s ease;
+  margin-top: 45px;
 }
 
-#start-btn:hover {
+#start-btn:hover,
+#restart-btn:hover,
+#play-again-btn:hover {
   background-color: #005f73;
 }
