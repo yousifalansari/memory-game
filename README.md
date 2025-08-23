@@ -3,7 +3,7 @@ Memory Match Challenge
 
 Theme: Playing cards
 
-![Memory Match Challenge Logo](image.png) //(Chatgpt, 2025)
+![Memory Match Challenge Logo](image.png) (Chatgpt, 2025)
 
 ## Overview  
 Memory Match Challenge is a classic memory card matching game themed around playing cards. The player is presented with a grid of face-down cards, aiming to find all matching pairs before time runs out. The game includes features such as a countdown timer, move counter, sound control, and clear win/loss messaging. This project was chosen to demonstrate interactive DOM manipulation and game logic in JavaScript, with a focus on beginner-friendly but complete functionality.
