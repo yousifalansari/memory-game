@@ -161,18 +161,18 @@ h1 {
 
 
 .instructions {
-  margin: 0 0 16px 0;
-  color: #ccc;
-  font-size: 16px;
-  max-width: 480px;
-  user-select: none;
-  line-height: 1.5;
+    margin: 0 0 16px 0;
+    color: #ccc;
+    font-size: 16px;
+    max-width: 480px;
+    user-select: none;
+    line-height: 1.5;
 }
 
 .instructions strong {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 18px;
-  color: white;
-  text-align: center;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
 }

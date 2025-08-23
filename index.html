@@ -1,48 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Card Memory Game</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="js/app.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Card Memory Game</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
 </head>
+
 <body>
-  <main>
-    <h1>Card Memory Game</h1>
+    <main>
+        <h1>Card Memory Game</h1>
 
-    <div id="start-instructions" class="instructions">
-      <strong>How to Play:</strong>
-      <ul>
-        <li>Click on any two cards to flip them over.</li>
-        <li>If the two cards match, they stay face up and count towards your score.</li>
-        <li>If they don't match, they flip back down after a short delay.</li>
-        <li>Try to remember card positions to find pairs faster.</li>
-        <li>You have 60 seconds to find all matching pairs before time runs out.</li>
-        <li>The game ends when all pairs are found or time expires.</li>
-        <li>Your goal is to find all pairs in the fewest moves possible.</li>
-        <li>Use the speaker button to mute or unmute game sounds.</li>
-      </ul>
-    </div>
+        <!-- Instructions for the player shown only on the start screen.
+         Uses a container div with class "instructions" for styling.
+         Contains detailed bullet points to guide the player clearly. -->
+        <div id="start-instructions" class="instructions">
+            <strong>How to Play:</strong>
+            <ul>
+                <li>Click on any two cards to flip them over.</li>
+                <li>If the two cards match, they stay face up and count towards your score.</li>
+                <li>If they don't match, they flip back down after a short delay.</li>
+                <li>Try to remember card positions to find pairs faster.</li>
+                <li>You have 60 seconds to find all matching pairs before time runs out.</li>
+                <li>The game ends when all pairs are found or time expires.</li>
+                <li>Your goal is to find all pairs in the fewest moves possible.</li>
+                <li>Use the speaker button to mute or unmute game sounds.</li>
+            </ul>
+        </div>
 
-    <div id="buttons-top">
-      <button id="start-btn">Start Game</button>
-    </div>
+        <!-- Top button container that currently holds the Start Game button.
+         Positioning and display state controlled by CSS/JS to show/hide as needed. -->
+        <div id="buttons-top">
+            <button id="start-btn">Start Game</button>
+        </div>
 
-    <div id="info-panel">
-      <div id="moves-counter" style="display:none;">Moves: 0</div>
-      <div id="score" style="display:none;">Score: 0 / 12</div>
-      <div id="timer" style="display:none;"></div>
-    </div>
+        <!-- Info panel that displays gameplay stats such as:
+         - Number of moves player has made
+         - Current score (pairs found)
+         - Countdown timer of remaining time
+      
+         These elements are initially hidden and toggled visible when the game starts -->
+        <div id="info-panel">
+            <div id="moves-counter" style="display:none;">Moves: 0</div>
+            <div id="score" style="display:none;">Score: 0 / 12</div>
+            <div id="timer" style="display:none;"></div>
+        </div>
 
-    <div id="game-board" class="game-board" style="display:none;"></div>
-    <div id="countdown" style="display:none;"></div>
-    <div id="message" style="display:none;"></div>
+        <!-- Main game board container where cards are dynamically rendered.
+         Initially hidden before game start, shown once cards are shuffled and ready -->
+        <div id="game-board" class="game-board" style="display:none;"></div>
 
-    <div id="buttons-bottom">
-      <button id="restart-btn" style="display:none;">Restart Game</button>
-      <button id="play-again-btn" style="display:none;">Play Again</button>
-    </div>
-  </main>
+        <!-- Countdown display element, used during the pre-game countdown ) 3, 2, 1, Go!) 
+         Hidden by default and shown only while countdown is active -->
+        <div id="countdown" style="display:none;"></div>
+
+        <!-- Message display for game state feedback )win/lose messages
+         Initially hidden and shown at end game or other relevant times -->
+        <div id="message" style="display:none;"></div>
+
+        <!-- Bottom buttons container holding Restart and Play Again buttons.
+         Hidden when not in use, shown after game ends to allow easy replay or restart -->
+        <div id="buttons-bottom">
+            <button id="restart-btn" style="display:none;">Restart Game</button>
+            <button id="play-again-btn" style="display:none;">Play Again</button>
+        </div>
+    </main>
 </body>
+
 </html>
